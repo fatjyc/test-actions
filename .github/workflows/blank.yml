@@ -33,8 +33,9 @@ jobs:
 
     - name: Get url
       run: |
-        echo ${{ steps.create_release.outputs.upload_url }} > UPLOAD_URL
-        echo ${{ env.RELEASE_VERSION }} > RELEASE_VERSION
+        echo "${{ steps.create_release.outputs.upload_url }}" >> UPLOAD_URL
+        cat UPLOAD_URL
+        echo ${{ env.RELEASE_VERSION }} >> RELEASE_VERSION
 
 
     - name: Upload math result for job 1
