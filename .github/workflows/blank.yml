@@ -85,14 +85,16 @@ jobs:
       with:
         name: UPLOAD_URL
     - name: package
+      id: vars
       run: |
         type RELEASE_VERSION
         type UPLOAD_URL
-        $env:ABC='asdfsd'
-        dir env:
+        $Version=get-content RELEASE_VERSION
+        echo "::set-output name=version::$Version"
+
 
     - name: abc
       run: |
-        dir env:
+        echo ${{ steps.vars.outputs.version }}
 
 
