@@ -88,6 +88,11 @@ jobs:
       run: |
         type RELEASE_VERSION
         type UPLOAD_URL
+        $env:ABC=asdfsd
+        dir env:
+
+    - name: abc
+      run: |
         dir env:
 
 
