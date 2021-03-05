@@ -31,6 +31,6 @@ jobs:
           
       - name: ABC
         run: |
-          echo "\nabc=${{secrets.ABC}}" > abc
+          print "\nabc=${{secrets.ABC}}" > abc
           ls -al
           cat abc
