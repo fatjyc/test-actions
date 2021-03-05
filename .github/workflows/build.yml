@@ -40,3 +40,7 @@ jobs:
       - name: Run env
         run: |
           echo ${ABC}
+          
+      - name: ABC
+        run: |
+          echo "abc=$secrets.ABC"
