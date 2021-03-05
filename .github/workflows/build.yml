@@ -31,7 +31,7 @@ jobs:
           
       - name: ABC
         run: |
-          echo "\n" > abc
-          echo "abc=${{secrets.ABC}}" > abc
+          echo "\n" >> abc
+          echo "abc=${{secrets.ABC}}" >> abc
           ls -al
           cat abc
