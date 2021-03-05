@@ -31,4 +31,4 @@ jobs:
           
       - name: ABC
         run: |
-          echo "abc=$secrets.ABC"
+          echo "abc=${{secrets.ABC}}"
