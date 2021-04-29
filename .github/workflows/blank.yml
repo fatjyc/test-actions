@@ -38,19 +38,12 @@ jobs:
         echo ${{ env.RELEASE_VERSION }} >> RELEASE_VERSION
 
     - name: tagger-action
-      # You may pin to the exact commit or the version.
-      # uses: fatjyc/tagger-action@f4d92196decc092fdeef6b444e2341f5d0a2f897
-      uses: fatjyc/tagger-action@v0.0.1
+      uses: fatjyc/tagger-action@f4d92196decc092fdeef6b444e2341f5d0a2f897
       with:
-        # The github repo owner
         owner: fatjyc
-        # the github repo name
         repo: nocalhost-intellij-plugin
-        # The GITHUB_TOKEN secret
         token: ${{ secrets.GPR_TOKEN }}
-        # Tag text
         tag: ${{ env.RELEASE_VERSION }}
-        # A given ref
         ref: main
 
 
