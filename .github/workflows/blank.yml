@@ -46,13 +46,3 @@ jobs:
         git checkout 203
         git tag '${{ env.RELEASE_VERSION }}-2020.3'
         git push https://fatjyc:${{ secrets.GPR_TOKEN }}@github.com/fatjyc/nocalhost-intellij-plugin.git '${{ env.RELEASE_VERSION }}-2020.3'
-#     - name: tagger-action
-#       uses: fatjyc/tagger-action@f4d92196decc092fdeef6b444e2341f5d0a2f897
-#       with:
-#         owner: fatjyc
-#         repo: nocalhost-intellij-plugin
-#         token: ${{ secrets.GPR_TOKEN }}
-#         tag: ${{ env.RELEASE_VERSION }}
-#         ref: main
-
-
