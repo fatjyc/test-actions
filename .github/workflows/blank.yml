@@ -31,18 +31,35 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: Get url
-      run: |
-        echo "${{ steps.create_release.outputs.upload_url }}" >> UPLOAD_URL
-        cat UPLOAD_URL
-        echo ${{ env.RELEASE_VERSION }} >> RELEASE_VERSION
-        git clone https://github.com/fatjyc/nocalhost-intellij-plugin.git
-        cd nocalhost-intellij-plugin
-        git config user.email "nocalhost@nocalhost.dev"
-        git config user.name "nocalhost"
-        git checkout main
-        git tag '${{ env.RELEASE_VERSION }}-2021.1'
-        git push https://fatjyc:${{ secrets.GPR_TOKEN }}@github.com/fatjyc/nocalhost-intellij-plugin.git '${{ env.RELEASE_VERSION }}-2021.1'
-        git checkout 203
-        git tag '${{ env.RELEASE_VERSION }}-2020.3'
-        git push https://fatjyc:${{ secrets.GPR_TOKEN }}@github.com/fatjyc/nocalhost-intellij-plugin.git '${{ env.RELEASE_VERSION }}-2020.3'
+    - name: tagger-action
+      # You may pin to the exact commit or the version.
+      # uses: fatjyc/tagger-action@043d4082abb6563f8a0de6ce69d3c3fa787bef20
+      uses: fatjyc/tagger-action@v0.0.2
+      with:
+        # The github repo owner
+        owner: fatjyc
+        # the github repo name
+        repo: nocalhost-intellij-plugin
+        # The GITHUB_TOKEN secret
+        token: ${{ secrets.GPR_TOKEN }}
+        # Tag text
+        tag: ${{ env.RELEASE_VERSION }}
+        # A given ref
+        ref: main
+    
+
+#     - name: Get url
+#       run: |
+#         echo "${{ steps.create_release.outputs.upload_url }}" >> UPLOAD_URL
+#         cat UPLOAD_URL
+#         echo ${{ env.RELEASE_VERSION }} >> RELEASE_VERSION
+#         git clone https://github.com/fatjyc/nocalhost-intellij-plugin.git
+#         cd nocalhost-intellij-plugin
+#         git config user.email "nocalhost@nocalhost.dev"
+#         git config user.name "nocalhost"
+#         git checkout main
+#         git tag '${{ env.RELEASE_VERSION }}-2021.1'
+#         git push https://fatjyc:${{ secrets.GPR_TOKEN }}@github.com/fatjyc/nocalhost-intellij-plugin.git '${{ env.RELEASE_VERSION }}-2021.1'
+#         git checkout 203
+#         git tag '${{ env.RELEASE_VERSION }}-2020.3'
+#         git push https://fatjyc:${{ secrets.GPR_TOKEN }}@github.com/fatjyc/nocalhost-intellij-plugin.git '${{ env.RELEASE_VERSION }}-2020.3'
