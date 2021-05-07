@@ -34,7 +34,7 @@ jobs:
     - name: tagger-action
       # You may pin to the exact commit or the version.
       # uses: fatjyc/tagger-action@043d4082abb6563f8a0de6ce69d3c3fa787bef20
-      uses: fatjyc/tagger-action@v0.0.2
+      uses: fatjyc/tagger-action@v0.0.3
       with:
         # The github repo owner
         owner: fatjyc
